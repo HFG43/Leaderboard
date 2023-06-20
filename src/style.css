@@ -2,9 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  list-style: none;
 }
 
-.project_title{
+.project_title {
+  margin-top: 24px;
   margin-left: 5%;
   font-size: 2rem;
 }
@@ -13,6 +15,8 @@ button {
   background-color: #fff;
   box-shadow: 1.5px 1.5px black;
   padding: 3px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .board_container {
@@ -41,11 +45,17 @@ button {
 }
 
 .recent_scores_list_container {
-  border: 1px solid black;
+  border: 2px solid black;
+  box-shadow: 1.5px 1.5px black;
 }
 
-.recent_scores_list_container:nth-child(odd) {
-  background-color: burlywood;
+.score_item {
+  padding: 6px;
+  font-size: 1.2rem;
+}
+
+.score_item:nth-child(even) {
+  background-color: rgb(223, 216, 207);
 }
 
 .add_your_score_container h2{
