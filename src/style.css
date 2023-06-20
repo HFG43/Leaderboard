@@ -1,3 +1,70 @@
-.hello {
-    color: red;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.project_title{
+  margin-left: 5%;
+  font-size: 2rem;
+}
+
+button {
+  background-color: #fff;
+  box-shadow: 1.5px 1.5px black;
+  padding: 3px;
+}
+
+.board_container {
+  display: flex;
+  margin-top: 24px;
+}
+
+.container_position {
+  width: 40%;
+  margin: 0 5% 0 5%; 
+}
+
+.recent_scores_container {
+
+}
+
+.recent_scores_container h2 {
+  margin-right: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.title_recent_scores_container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.recent_scores_list_container {
+  border: 1px solid black;
+}
+
+.recent_scores_list_container:nth-child(odd) {
+  background-color: burlywood;
+}
+
+.add_your_score_container h2{
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;  
+}
+
+form input {
+  width: 60%;
+  margin-bottom: 24px;
+  padding: 6px;
+  border: solid 2px black;
+}
+
+form button {
+  width: 25%;
+  margin-left: 35%;
 }
