@@ -106,11 +106,8 @@ Open index.html file with your Code Editor, and review the behaviour of the page
 
 To run the project, execute the following command:
 
-Run index.html on yor Web Browser to view changes.
-
-Example command on VSC: 
-Select your index.html file
-Run Open with Live Server.
+- In the command line:
+ run "npm start"
 
 ### Run tests
 
