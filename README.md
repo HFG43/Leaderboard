@@ -34,9 +34,9 @@
 
 # 📖 [Leaderboard] <a name="about-project"></a>
 
-This project is about a generation of a To Do List application using HTML, JavaScript, the browser's Local Storage, and Webpack as a compiler. Users can add, edit and remove items through a user-friendly interface. 
+This project is about using an API to get a list of names and their scores. 
 
-**[Leaderboard]** is a project where I put in practice ES6 semantics and use of webpack.
+**[Leaderboard]** For this project, I used Gitflow by working on a feature branch and using develop as my main branch till production, and also use webpack as compiler.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -72,12 +72,12 @@ This project is about a generation of a To Do List application using HTML, JavaS
 
 ### Key Features <a name="key-features"></a>
 
+- **[Use GitFlow]**
 - **[Use Linters]**
 - **[Use ES6 syntax]**
 - **[Use JavaScript Modules]**
 - **[Use Webpack Template]**
-- **[Improve UX by adding more intuitive interaction]**
-- **[Clear all list intems button]**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,7 +96,7 @@ Open on Visual Studio Code or any other code reader, and use an app as Live Serv
 
 Clone this repository to your desired folder:
 
-git clone https://github.com/HFG43/ToDoList
+git clone https://github.com/HFG43/Leaderboard
 
 ### Install
 
@@ -122,7 +122,7 @@ No test available yet.
 
 You can deploy this project using:
 
-[My portfolio deployment link] (https://hfg43.github.io/ToDoList/)
+[My portfolio deployment link] No deployment yet available.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +139,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Drag & Drop option]**
+- **[Send and Receive data from API]**
 - **[Deployment using GH Pages]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

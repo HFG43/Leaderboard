@@ -26,11 +26,7 @@ button {
 
 .container_position {
   width: 40%;
-  margin: 0 5% 0 5%; 
-}
-
-.recent_scores_container {
-
+  margin: 0 5% 0 5%;
 }
 
 .recent_scores_container h2 {
@@ -58,13 +54,13 @@ button {
   background-color: rgb(223, 216, 207);
 }
 
-.add_your_score_container h2{
+.add_your_score_container h2 {
   margin-bottom: 10px;
 }
 
 form {
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
 form input {
