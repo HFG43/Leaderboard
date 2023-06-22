@@ -1,7 +1,5 @@
 import './style.css';
-// import { setNewScore, getScores } from './fectch.js';
 import Scores from './scores.js';
-// import getGameId from './getGameId.js';
 import getURL from './url.js';
 import {
   form,
