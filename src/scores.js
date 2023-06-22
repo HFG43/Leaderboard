@@ -1,7 +1,6 @@
 export default class Scores {
-  constructor(user, score, index) {
+  constructor(user, score) {
     this.user = user;
     this.score = score;
-    this.index = index;
   }
 }

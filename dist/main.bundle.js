@@ -110,13 +110,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
+/***/ "./src/dynamics.js":
+/*!*************************!*\
+  !*** ./src/dynamics.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   form: () => (/* binding */ form),\n/* harmony export */   playerName: () => (/* binding */ playerName),\n/* harmony export */   playerScore: () => (/* binding */ playerScore),\n/* harmony export */   submitNewScore: () => (/* binding */ submitNewScore)\n/* harmony export */ });\nconst form = document.querySelector('.new_score_form');\nconst playerName = document.getElementById('name');\nconst playerScore = document.getElementById('score');\nconst submitNewScore = document.getElementById('submit');\n\n\n\n//# sourceURL=webpack://leaderboard/./src/dynamics.js?");
+
+/***/ }),
+
 /***/ "./src/generateGame.js":
 /*!*****************************!*\
   !*** ./src/generateGame.js ***!
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   nameResult: () => (/* binding */ nameResult)\n/* harmony export */ });\nlet nameResult = '';\n\nconst generateGameName = async () => {\n  const result = await fetch(\n    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/',\n    {\n      method: 'POST',\n      body: JSON.stringify({\n        name: 'Bike Downhill Championship',\n      }),\n      headers: {\n        'Content-type': 'application/json; charset=UTF-8',\n      },\n    },\n  );\n\n  if (result.ok) {\n    const data = await result.json();\n    nameResult = data.value;\n  } else {\n    console.log('error');\n  }\n};\ngenerateGameName();\n\n\n\n//# sourceURL=webpack://leaderboard/./src/generateGame.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst generateGameName = async () => {\n  const result = await fetch(\n    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/',\n    {\n      method: 'POST',\n      body: JSON.stringify({\n        name: 'Bike Downhill Championship',\n      }),\n      headers: {\n        'Content-type': 'application/json; charset=UTF-8',\n      },\n    },\n  );\n\n  if (result.ok) {\n    const data = await result.json();\n    const nameResult = data.result;\n    return nameResult;\n  }\n  return 'error';\n};\ngenerateGameName();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (generateGameName);\n\n\n//# sourceURL=webpack://leaderboard/./src/generateGame.js?");
 
 /***/ }),
 
@@ -126,7 +136,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _generateGame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generateGame.js */ \"./src/generateGame.js\");\n\n\nconst getGameId = (nameResult) => {\n  const resultArray = nameResult.split(' ');\n  let gameId = '';\n  for (let i = 0; i < resultArray.length; i += 1) {\n    if (resultArray[i].length > gameId.length) {\n      gameId = resultArray[i];\n    }\n  }\n  return gameId;\n};\ngetGameId(_generateGame_js__WEBPACK_IMPORTED_MODULE_0__.nameResult);\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({ getGameId });\n\n\n//# sourceURL=webpack://leaderboard/./src/getGameId.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _generateGame_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./generateGame.js */ \"./src/generateGame.js\");\n\n\nconst getGameId = async () => {\n  const gameName = await (0,_generateGame_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  const resultArray = gameName.split(' ');\n  let gameId = '';\n  for (let i = 0; i < resultArray.length; i += 1) {\n    if (resultArray[i].length > gameId.length) {\n      gameId = resultArray[i];\n    }\n  }\n  return gameId;\n};\ngetGameId();\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getGameId);\n\n\n//# sourceURL=webpack://leaderboard/./src/getGameId.js?");
 
 /***/ }),
 
@@ -136,7 +146,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _scores_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scores.js */ \"./src/scores.js\");\n/* harmony import */ var _getGameId_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getGameId.js */ \"./src/getGameId.js\");\n\n\n\n\nasync function getRecentScores() {\n  const result = await fetch(\n    `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${_getGameId_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]}/scores/`,\n    {\n      method: 'POST',\n      body: JSON.stringify({\n        user: '',\n        score: ''\n      }),\n      headers: {\n        'Content-type': 'application/json; charset=UTF-8',\n      },\n    }\n  );\n\n  if (result) {\n    nameResult = result.value;\n  } else {\n    alert('Define a new name');\n  }\n}\n\n// const scores = [\n//   {\n//     player: 'Player1',\n//     score: 100,\n//     index: 0,\n//   },\n//   {\n//     player: 'Player2',\n//     score: 400,\n//     index: 1,\n//   },\n//   {\n//     player: 'Player3',\n//     score: 200,\n//     index: 2,\n//   },\n//   {\n//     player: 'Player4',\n//     score: 40,\n//     index: 3,\n//   },\n// ];\n\n// const scoreListContainer = document.querySelector('.recent_scores_list_container');\n\n// const addscores = () => {\n//   scores.forEach((score) => {\n//     const newScore = new Scores(score.player, score.score, score.index);\n//     const scoreContainer = document.createElement('li');\n//     scoreContainer.innerText = `${newScore.player}: ${newScore.score}`;\n//     scoreContainer.classList.add('score_item');\n//     scoreListContainer.appendChild(scoreContainer);\n//     return newScore;\n//   });\n// };\n// addscores();\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _scores_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./scores.js */ \"./src/scores.js\");\n/* harmony import */ var _getGameId_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./getGameId.js */ \"./src/getGameId.js\");\n/* harmony import */ var _dynamics_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dynamics.js */ \"./src/dynamics.js\");\n\n\n\n\n\nconst newScore = _dynamics_js__WEBPACK_IMPORTED_MODULE_3__.submitNewScore.addEventListener('click', () => {\n    console.log(\"hola\");\n    // const newUser = playerName.value;\n    // const newScore = playerScore.value;\n});\n\n// const setNewScore = async () => {\n//   const getId = await getGameId();\n//   const result = await fetch(\n//     `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${getId}/scores`,\n//     {\n//       method: 'POST',\n//       body: JSON.stringify({\n//         user: 'kdkdkd',\n//         score: 8,\n//       }),\n//       headers: {\n//         'Content-type': 'application/json; charset=UTF-8',\n//       },\n//     },\n//   );\n\n// //   if (result) {\n// //     // console.log(result);\n// //     // nameResult = result.value;\n// //   } else {\n// //     console.log('Define a new name');\n// //   }\n// };\n// setNewScore();\n\n// const scoreListContainer = document.querySelector('.recent_scores_list_container');\n\n// const addscores = () => {\n//   scores.forEach((score) => {\n//     const newScore = new Scores(score.user, score.score);\n//     const scoreContainer = document.createElement('li');\n//     scoreContainer.innerText = `${newScore.user}: ${newScore.score}`;\n//     scoreContainer.classList.add('score_item');\n//     scoreListContainer.appendChild(scoreContainer);\n//     return newScore;\n//   });\n// };\n// addscores();\n\n\n//# sourceURL=webpack://leaderboard/./src/index.js?");
 
 /***/ }),
 
@@ -146,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Scores)\n/* harmony export */ });\nclass Scores {\n  constructor(user, score, index) {\n    this.user = user;\n    this.score = score;\n    this.index = index;\n  }\n}\n\n\n//# sourceURL=webpack://leaderboard/./src/scores.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Scores)\n/* harmony export */ });\nclass Scores {\n  constructor(user, score) {\n    this.user = user;\n    this.score = score;\n  }\n}\n\n\n//# sourceURL=webpack://leaderboard/./src/scores.js?");
 
 /***/ })
 
