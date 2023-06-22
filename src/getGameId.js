@@ -9,8 +9,8 @@ const getGameId = async () => {
       gameId = resultArray[i];
     }
   }
+  localStorage.setItem('gameId', gameId);
   return gameId;
 };
-getGameId();
 
 export default getGameId;

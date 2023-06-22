@@ -19,6 +19,5 @@ const generateGameName = async () => {
   }
   return 'error';
 };
-generateGameName();
 
 export default generateGameName;

@@ -1,13 +1,15 @@
 import getGameId from './getGameId.js';
 
-const getIdFromLocalStorage = JSON.parse(localStorage.getItem('id'));
-if (getIdFromLocalStorage === undefined) {
-  await getGameId();
-  url = getIdFromLocalStorage;
+const getURL = async () => {
+  let getIdFromLocalStorage = localStorage.getItem('gameId');
+  let idForURL = '';
+  if (getIdFromLocalStorage === null) {
+    await getGameId();
+    getIdFromLocalStorage = localStorage.getItem('gameId');
+  }
+  idForURL = getIdFromLocalStorage;
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${idForURL}/scores`;
   return url;
-} else 
-  { url = getIdFromLocalStorage;
-    return url;
 };
 
-export default { url};
+export default getURL;
