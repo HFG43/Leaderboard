@@ -4,7 +4,6 @@ import Scores from './scores.js';
 // import getGameId from './getGameId.js';
 import getURL from './url.js';
 import {
-  submitNewScore,
   form,
   playerName,
   playerScore,
@@ -14,16 +13,13 @@ import {
 
 const setNewScore = async (newScore) => {
   try {
-    const result = await fetch(
-      'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/tJ0TIDemXqPa7nFliAbp/scores',
-      {
-        method: 'POST',
-        body: JSON.stringify(newScore),
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-        },
-      }
-    );
+    const result = await fetch(await getURL(), {
+      method: 'POST',
+      body: JSON.stringify(newScore),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
     const newScoreResult = await result.json();
     return newScoreResult;
   } catch (error) {
@@ -45,9 +41,7 @@ const addScores = async (savedScores) => {
 };
 
 const getScores = async () => {
-  const resultSaved = await fetch(
-    'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/tJ0TIDemXqPa7nFliAbp/scores'
-  );
+  const resultSaved = await fetch(await getURL());
   const savedScores = await resultSaved.json();
   addScores(savedScores);
 };
@@ -60,6 +54,10 @@ form.addEventListener('submit', (event) => {
   const newScore = new Scores(name, score);
   setNewScore(newScore);
   addScore(newScore);
+  form.reset();
 });
 
-getURL();
+refreshScores.addEventListener('click', () => {
+  scoreListContainer.innerHTML = '';
+  getScores();
+});
