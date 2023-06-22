@@ -1,39 +1,61 @@
 import './style.css';
 import Scores from './scores.js';
+import getURL from './url.js';
+import {
+  form,
+  playerName,
+  playerScore,
+  refreshScores,
+  scoreListContainer,
+} from './dynamics.js';
 
-const scores = [
-  {
-    player: 'Player1',
-    score: 100,
-    index: 0,
-  },
-  {
-    player: 'Player2',
-    score: 400,
-    index: 1,
-  },
-  {
-    player: 'Player3',
-    score: 200,
-    index: 2,
-  },
-  {
-    player: 'Player4',
-    score: 40,
-    index: 3,
-  },
-];
+const setNewScore = async (newScore) => {
+  try {
+    const result = await fetch(await getURL(), {
+      method: 'POST',
+      body: JSON.stringify(newScore),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    const newScoreResult = await result.json();
+    return newScoreResult;
+  } catch (error) {
+    return error;
+  }
+};
 
-const scoreListContainer = document.querySelector('.recent_scores_list_container');
+const addScore = async (newScore) => {
+  const scoreContainer = document.createElement('li');
+  scoreContainer.innerText = `${newScore.user}: ${newScore.score}`;
+  scoreContainer.classList.add('score_item');
+  scoreListContainer.appendChild(scoreContainer);
+};
 
-const addscores = () => {
-  scores.forEach((score) => {
-    const newScore = new Scores(score.player, score.score, score.index);
-    const scoreContainer = document.createElement('li');
-    scoreContainer.innerText = `${newScore.player}: ${newScore.score}`;
-    scoreContainer.classList.add('score_item');
-    scoreListContainer.appendChild(scoreContainer);
-    return newScore;
+const addScores = async (savedScores) => {
+  savedScores.result.forEach((score) => {
+    addScore(score);
   });
 };
-addscores();
+
+const getScores = async () => {
+  const resultSaved = await fetch(await getURL());
+  const savedScores = await resultSaved.json();
+  addScores(savedScores);
+};
+getScores();
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const name = playerName.value;
+  const score = playerScore.value;
+  const newScore = new Scores(name, score);
+  setNewScore(newScore);
+  addScore(newScore);
+  form.reset();
+});
+
+refreshScores.addEventListener('click', () => {
+  scoreListContainer.innerHTML = '';
+  getScores();
+});

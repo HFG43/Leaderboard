@@ -36,7 +36,7 @@
 
 This project is about using an API to get a list of names and their scores. 
 
-**[Leaderboard]** For this project, I used Gitflow by working on a feature branch and using develop as my main branch till production, and also use webpack as compiler.
+**[Leaderboard]** For this project, I used Gitflow by working on a feature branch and using develop as my main branch till production, and also use webpack as compiler. Also, I have used the API Leaderbord to save the score information, and to get the scores for display.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -77,6 +77,8 @@ This project is about using an API to get a list of names and their scores.
 - **[Use ES6 syntax]**
 - **[Use JavaScript Modules]**
 - **[Use Webpack Template]**
+- **[Use Async/await functions]**
+- **[Use Leaderborad API]**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -136,8 +138,8 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Send and Receive data from API]**
 - **[Deployment using GH Pages]**
+- **[Add a user friendly design]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
