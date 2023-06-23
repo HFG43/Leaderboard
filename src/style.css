@@ -37,6 +37,11 @@ button {
   margin-bottom: 20px;
 }
 
+form button {
+  width: 25%;
+  margin-left: 35%;
+}
+
 button:hover {
   background-color: rgb(181, 193, 7);
 }
@@ -109,11 +114,6 @@ form input {
 
 ::placeholder {
   color: #fff;
-}
-
-form button {
-  width: 25%;
-  margin-left: 35%;
 }
 
 @media all and (min-width: 500px) {
