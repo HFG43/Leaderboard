@@ -79,7 +79,7 @@ This project is about using an API to get a list of names and their scores.
 - **[Use Webpack Template]**
 - **[Use Async/await functions]**
 - **[Use Leaderborad API]**
-
+- **[Add a user friendly & responsive design]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +139,6 @@ You can deploy this project using:
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **[Deployment using GH Pages]**
-- **[Add a user friendly design]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

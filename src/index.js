@@ -1,4 +1,5 @@
 import './style.css';
+import Flag from './Race-flag.svg';
 import Scores from './scores.js';
 import getURL from './url.js';
 import {
@@ -7,6 +8,7 @@ import {
   playerScore,
   refreshScores,
   scoreListContainer,
+  flagContainer,
 } from './dynamics.js';
 
 const setNewScore = async (newScore) => {
@@ -59,3 +61,8 @@ refreshScores.addEventListener('click', () => {
   scoreListContainer.innerHTML = '';
   getScores();
 });
+
+const raceFlag = new Image();
+raceFlag.src = Flag;
+raceFlag.classList.add('flag');
+flagContainer.appendChild(raceFlag);
