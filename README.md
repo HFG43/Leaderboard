@@ -121,7 +121,7 @@ No test available yet.
 
 You can deploy this project using:
 
-[My portfolio deployment link] No deployment yet available.
+([My portfolio deployment link] (https://hfg43.github.io/Leaderboard/)).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -138,7 +138,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **[Deployment using GH Pages]**
+- **[Input to personalize the game name]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
