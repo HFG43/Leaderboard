@@ -13,7 +13,8 @@ import {
 
 const setNewScore = async (newScore) => {
   try {
-    const result = await fetch(await getURL(), {
+    const url = await getURL();
+    const result = await fetch(url, {
       method: 'POST',
       body: JSON.stringify(newScore),
       headers: {
@@ -41,7 +42,8 @@ const addScores = async (savedScores) => {
 };
 
 const getScores = async () => {
-  const resultSaved = await fetch(await getURL());
+  const url = await getURL();
+  const resultSaved = await fetch(url);
   const savedScores = await resultSaved.json();
   addScores(savedScores);
 };
